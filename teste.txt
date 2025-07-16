@@ -1,0 +1,25 @@
+DEPTH = 256; % Memory depth and width are required %
+WIDTH = 16; % Enter a decimal number %
+
+ADDRESS_RADIX = HEX; % Address and value radixes are optional%
+DATA_RADIX = HEX; % Enter BIN, DEC, HEX, or OCT; unless %
+% otherwise specified, radixes = HEX %
+-- Specify values for addresses, which can be single address or range
+CONTENT
+BEGIN
+00 : 0210; % LOAD 10 (carrega valor 00AA) %
+01 : 0305; % JUMP 05 (pula para endereço 05) %
+02 : 0211; % LOAD 11 (não deve executar) %
+03 : 0211; % LOAD 11 (não deve executar) %
+04 : 0211; % LOAD 11 (não deve executar) %
+05 : 0212; % LOAD 12 (carrega valor 0000) %
+06 : 0300; % JUMP 00 (volta para o início) %
+07 : 0000; % NOP %
+08 : 0000; % NOP %
+[09..0F] : 0000;
+10 : 00AA; % 170 %
+11 : 0055; % 85 %
+12 : 0000; % 0 %
+13 : 0FFF; % 4095 %
+[14..FF] : 0000;
+END ;
